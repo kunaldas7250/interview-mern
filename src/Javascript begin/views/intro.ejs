@@ -1,0 +1,33 @@
+<%- include('Header')%>
+      <div class="row mb-5">
+        <div class="col">
+          <h1>About page</h1>
+          <% if (message) { %>
+          <p><%= message %></p>
+          <% } else { %>
+          <p>Sorry, you don’t have a message</p>
+          <% } %> <% const iteams=["banana","orange","grapes","mango"] %>
+          <ul>
+            <% iteams.forEach((item, index) => { %>
+            <li><%= index _%> - <%= item _%></li>
+            <% }) %>
+          </ul>
+
+          <ul>
+            <% for (let i = 0; i < 5; i++) { %>
+            <li>welcome:<%= i %></li>
+            <% } %>
+          </ul>
+          <table class="table">
+            <% user.forEach((item, index) => { %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= item.name %></td>
+              <td><%= item.college %></td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+      </div>
+
+      <%-include('Footer')%>

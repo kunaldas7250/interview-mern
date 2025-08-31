@@ -1,0 +1,85 @@
+.footer-parent {
+  width: 100%;
+  padding: 40px 20px;
+  background: #1a1a1a; /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-child {
+  max-width: 600px;
+  width: 100%;
+  background: #2a2a2a; /* Slightly lighter dark card */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-align: center;
+  color: #eee; /* Light text */
+}
+
+.footer-child h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-child h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  padding: 10px 12px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  background: #1f1f1f;
+  color: #f1f1f1;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #4a90e2;
+  outline: none;
+  background: #262626;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+p[role="alert"] {
+  color: #ff4d4d;
+  font-size: 13px;
+}
+
+input[type="submit"] {
+  background: #4a90e2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,105 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fc;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-section input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
+  color: white;
+}
+
+.btn-gray {
+  background: #666;
+  color: white;
+}
+
+.btn-green {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+}
+
+.loading,
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 18px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.student-card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.student-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.student-card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.student-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.page-info {
+  font-weight: bold;
+  color: #333;
+}

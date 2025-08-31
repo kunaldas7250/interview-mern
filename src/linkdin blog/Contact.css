@@ -1,0 +1,42 @@
+.contact-parent {
+  padding: 40px;
+  text-align: center;
+  background: #1a1a1a; /* dark mode */
+  color: #fff;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.contact-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.contact-list a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}

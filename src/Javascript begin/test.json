@@ -1,0 +1,32 @@
+[
+  {
+    "id": 11,
+    "username": "raj11",
+    "displayName": "Raj Malhotra",
+    "password": "raj@111"
+  },
+  {
+    "id": 12,
+    "username": "tina12",
+    "displayName": "Tina Kapoor",
+    "password": "tina@222"
+  },
+  {
+    "id": 13,
+    "username": "manoj13",
+    "displayName": "Manoj Tiwari",
+    "password": "manoj@333"
+  },
+  {
+    "id": 14,
+    "username": "kavya14",
+    "displayName": "Kavya Reddy",
+    "password": "kavya@444"
+  },
+  {
+    "id": 15,
+    "username": "alok15",
+    "displayName": "Alok Mishra",
+    "password": "alok@555"
+  }
+]

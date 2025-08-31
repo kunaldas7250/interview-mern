@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register/Login Form</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .form-container:hover {
+      transform: scale(1.02);
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #667eea;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #667eea;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form method="POST" action="/login">
+    
+
+      <label>Username:</label>
+      <input type="text" name="username" placeholder="Enter your name" required />
+
+      <label>Password:</label>
+      <input type="password" name="password" placeholder="Enter your password" required />
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html> -->
+
+
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form method="POST" action="/login">
+    <!-- CSRF Token -->
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+    <label>Username:</label>
+    <input type="text" name="username" required /><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" required /><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p><a href="/register">Register</a></p>
+</body>
+</html>

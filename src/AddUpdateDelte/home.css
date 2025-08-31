@@ -1,0 +1,57 @@
+/* Container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen */
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Title and subtitle */
+.home-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Buttons container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Button styles */
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+/* Register button */
+.btn-register {
+  background-color: #4caf50;
+  color: white;
+}
+.btn-register:hover {
+  background-color: #45a049;
+}
+
+/* Login button */
+.btn-login {
+  background-color: #2196f3;
+  color: white;
+}
+.btn-login:hover {
+  background-color: #1976d2;
+}

@@ -1,0 +1,123 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+
+    form {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    form h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      outline: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #2575fc;
+      box-shadow: 0 0 8px rgba(37, 117, 252, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+  </style>
+</head>
+<body>
+  <form method="POST" action="/register"> 
+  
+
+    <h2>Register</h2>
+    <label>Username:</label>
+    <input type="text" placeholder="Enter your name" name="username" required />
+
+    <label>Password:</label>
+    <input type="password" placeholder="Enter your password" name="password" required />
+<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html> -->
+
+
+<!-- views/register.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Register</h1>
+  <form method="POST" action="/register">
+    <!-- CSRF Token -->
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
+    <label>Username:</label>
+    <input type="text" name="username" required /><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" required /><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p><a href="/login">Register</a></p>
+</body>
+</html>

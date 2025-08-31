@@ -1,16 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -28,11 +22,317 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+.parent {
+  height: 700px;
+  width: 1200;
+  /* background-color: red; */
+}
+.child {
+  /* background-color: blue; */
+  display: flex;
+  justify-content: space-between;
+}
+.question {
+  height: 60px;
+  width: 600px;
+  color: red;
+  border: 2px solid black;
+  /* background-color: gold; */
+}
+.HEADING {
+  width: fit-content;
+}
+.answer2 {
+  height: 30px;
+  width: 600px;
+  color: greenyellow;
+  border: 2px solid black;
+}
+.parent {
+  width: fit-content;
+  margin: 20px;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.pagination__css {
+  height: 320px;
+  width: 500px;
+  padding: 20px;
+  background-color: rgb(220, 220, 220);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pagination__css > img {
+  width: 100%;
+  height: 95px;
+  object-fit: cover;
+  margin-bottom: 3px;
+}
+.pagination {
+  padding: 10px;
+  margin: 15 0;
+  display: flex;
+  justify-content: center;
+}
+.pagination > span {
+  padding: 15px 20px;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+/* Overlay */
+.cointer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Popup content */
+.textmodel {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  animation: popupFade 0.3s ease-in-out;
+}
+
+/* ❌ close icon */
+.textmodel .close-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #444;
+}
+
+.textmodel .close-icon:hover {
+  color: red;
+}
+
+/* Accept button */
+.accept-btn {
+  margin-top: 20px;
+  padding: 8px 15px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accept-btn:hover {
+  background: #45a049;
+}
+
+/* Animation */
+@keyframes popupFade {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0.9);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1);
   }
+}
+
+.todoparent {
+  width: 350px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.inputfieldparent {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.parentstoredata {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between; /* pushes icons to right */
+  align-items: center;
+  background: #f8f8f8;
+  margin-bottom: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.todo-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-icons span {
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.todo-icons span:hover {
+  transform: scale(1.2);
+}
+/* .dropborder {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: 1px dotted black;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+.Drag {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.Drag input {
+  padding: 6px;
+  width: 70%;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.Drag button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Drag button:hover {
+  background-color: #0056b3;
+}
+
+.Drop {
+  padding: 15px;
+  border: 1px dotted black;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 150px;
+  width: 300px;
+}
+
+.droplist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  margin-top: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.droplist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+} */
+
+
+/* Container styles */
+.Drag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.Drag input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  flex: 1;
+}
+
+.Drag button {
+  background: #4cafef;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.Drag button:hover {
+  background: #3a9ed9;
+}
+
+/* Drop area styles */
+.Drop {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.droplist {
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  padding: 10px;
+  border: 2px dashed transparent;
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.droplist.drag-over {
+  border-color: #4cafef;
+  background: #e0f7ff;
+}
+
+.droplist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.droplist li {
+  font-size: 16px;
+}
+
+/* Trash bin styles */
+.dropborder {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  background: #fafafa;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.dropborder.drag-over {
+  border-color: red;
+  background: #ffe5e5;
 }

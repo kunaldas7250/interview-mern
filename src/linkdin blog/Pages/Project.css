@@ -1,0 +1,65 @@
+.parentcontainer {
+  width: 100%;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.childcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.childcontainer img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.projectsection {
+    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.card {
+    
+  flex: 1 1 calc(33.333% - 20px); /* 3 columns */
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.card ul li {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 5px;
+}

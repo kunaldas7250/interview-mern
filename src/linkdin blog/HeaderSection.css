@@ -1,0 +1,60 @@
+/* Parent container */
+.parentcontainer {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Header bar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2563eb; /* blue */
+  color: white;
+  padding: 12px 20px;
+}
+
+/* Round logo */
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+/* Menu icon */
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.menu-content {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Menu list */
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-content li {
+  margin: 10px 0;
+}
+
+.menu-content a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu-content a:hover {
+  color: #2563eb; /* blue hover */
+}

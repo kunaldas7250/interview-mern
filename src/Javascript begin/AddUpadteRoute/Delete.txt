@@ -1,0 +1,457 @@
+const express = require("express");
+const cors = require("cors");
+const sql = require("mssql");
+const path = require("path");
+const app = express();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const cookie = require("cookie-parser");
+const csurf = require("csurf");
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow frontend
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true, // allow cookies/headers
+  })
+);
+const csrfProtection = csurf({
+  cookie: {
+    httpOnly: true,   // prevents JS from reading it
+    secure: false,    // true if using HTTPS
+    sameSite: "lax"   // must match frontend behavior
+  },
+  value: (req) => req.headers['x-csrf-token'] // read token from header
+});
+app.use(cookie());
+let secret_key = "kunal_das";
+let jwtverify = async (req, res, next) => {
+  try {
+    const token = req.cookies.auth_token; // ✅ correct way
+    if (!token) {
+      return res.status(401).json({ message: "❌ Token required" });
+    }
+    const decode = jwt.verify(token, secret_key);
+    req.user = decode;
+    next();
+  } catch (error) {
+    return res.status(403).json({ message: "❌ Invalid or expired token" });
+  }
+};
+const Dbconnection = {
+  user: "sa",
+  password: "@Kunal143",
+  database: "SalesDB",
+  server: "localhost",
+  port: 1433,
+  options: {
+    encrypt: false,
+    trustServerCertificate: true,
+  },
+};
+
+let pool;
+
+const connection = async () => {
+  try {
+    if (!pool) {
+      pool = await sql.connect(Dbconnection);
+      console.log("✅ Database connected successfully");
+    }
+    return pool;
+  } catch (error) {
+    console.error("❌ Something went wrong in connection:", error);
+  }
+};
+app.get("/csrf-token", csrfProtection, (req, res) => {
+  // CSRF cookie is automatically set by csurf
+  res.json({ csrfToken: req.csrfToken() });
+});
+app.get("/", jwtverify, (req, res) => {
+  res.status(200).redirect("/Register");
+});
+
+
+//   const { firstname, lastname, email, password, department } = req.body;
+
+//   try {
+//     if (!firstname || !lastname || !email || !password || !department) {
+//       return res.status(403).send("⚠️ Please fill in the details");
+//     }
+
+//     // hash password
+//     const hashpassword = await bcrypt.hash(password, 10);
+
+//     const pool = await connection();
+//     await pool
+//       .request()
+//       .input("firstname", sql.VarChar, firstname)
+//       .input("lastname", sql.VarChar, lastname)
+//       .input("email", sql.VarChar, email)
+//       .input("password", sql.VarChar, hashpassword)
+//       .input("department", sql.VarChar, department).query(`
+//         INSERT INTO dbo.Register (firstname, lastname, email, password, department)
+// VALUES (@firstname, @lastname, @email, @password, @department);
+//       `);
+
+//     res.status(201).send("✅ User Registered Successfully!",{csrfToken:req.csrfToken()});
+//     res.redirect("/login");
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send("❌ Something went wrong!");
+//   }
+// });
+
+
+// app.post("/login",csrfProtection, async (req, res) => {
+//   const { email, password, department } = req.body;
+//   try {
+//     if (!email || !password || !department) {
+//       return res.status(403).send("⚠️ Please fill in the details");
+//     }
+//     const pool = await connection();
+//     const result = await pool
+//       .request()
+//       .input("email", sql.VarChar, email)
+//       .query(
+//         `select r.email,r.department,r.password from dbo.Register as r where r.email=@email`
+//       );
+
+//     if (result.recordset.length === 0) {
+//       return res.status(400).send("❌ User not found");
+//     }
+//     const user = result.recordset[0];
+//     const ismatch = await bcrypt.compare(password, user.password);
+//     if (!ismatch) {
+//       return res.status(400).send("❌ Invalid username or password");
+//     }
+//     const token = jwt.sign(
+//       { email: user.email, department: user.department },
+//       secret_key,
+//       { expiresIn: "2d" }
+//     );
+//     res.cookie("auth_token", token, { httpOnly: true, sameSite: "lax" });
+//     res.json({
+//       message: "Login successful",
+//       user: { email: user.email, department: user.department },
+//       {csrfToken:req.csrfToken()}
+//     });
+//   } catch (error) {
+//     console.error(`❌ Something went wrong: ${error}`);
+//     res.status(500).send("Server Error");
+//   }
+// });
+app.post("/Register", csrfProtection, async (req, res) => {
+  const { firstname, lastname, email, password, department } = req.body;
+
+  if (!firstname || !lastname || !email || !password || !department) {
+    return res.status(403).json({ message: "⚠️ Please fill in the details" });
+  }
+
+  try {
+    const pool = await connection();
+
+    // Check if email already exists
+    const existing = await pool.request()
+      .input("email", sql.VarChar, email)
+      .query("SELECT email FROM dbo.Register WHERE email = @email");
+
+    if (existing.recordset.length > 0) {
+      return res.status(400).json({ message: "❌ Email already registered" });
+    }
+
+    const hashpassword = await bcrypt.hash(password, 10);
+
+    // Insert new user
+    await pool.request()
+      .input("firstname", sql.VarChar, firstname)
+      .input("lastname", sql.VarChar, lastname)
+      .input("email", sql.VarChar, email)
+      .input("password", sql.VarChar, hashpassword)
+      .input("department", sql.VarChar, department)
+      .query(`INSERT INTO dbo.Register (firstname, lastname, email, password, department)
+              VALUES (@firstname, @lastname, @email, @password, @department)`);
+
+    res.status(201).json({ 
+      message: "✅ User Registered Successfully!", 
+      csrfToken: req.csrfToken() 
+    });
+
+  } catch (error) {
+    console.error("❌ Registration error:", error);
+    res.status(500).json({ message: "❌ Something went wrong!" });
+  }
+});
+
+app.post("/login", csrfProtection, async (req, res) => {
+  const { email, password, department } = req.body;
+
+  if (!email || !password || !department) {
+    return res.status(403).json({ message: "⚠️ Please fill in the details" });
+  }
+
+  const pool = await connection();
+  const result = await pool.request()
+    .input("email", sql.VarChar, email)
+    .query(`SELECT email, department, password FROM dbo.Register WHERE email=@email`);
+
+  if (result.recordset.length === 0) {
+    return res.status(400).json({ message: "❌ User not found" });
+  }
+
+  const user = result.recordset[0];
+  const ismatch = await bcrypt.compare(password, user.password);
+  if (!ismatch) return res.status(400).json({ message: "❌ Invalid username or password" });
+
+  const token = jwt.sign({ email: user.email, department: user.department }, secret_key, { expiresIn: "2d" });
+  res.cookie("auth_token", token, { httpOnly: true, sameSite: "lax" });
+  res.status(200).json({
+    message: "Login successful",
+    user: { email: user.email, department: user.department },
+    csrfToken: req.csrfToken()
+  });
+});
+app.get("/logout", (req, res) => {
+  try {
+    res.clearCookie("auth_token", {
+      httpOnly: true,
+      secure: false, // set true if using https
+      sameSite: "lax", // must match cookie settings you used in login
+    });
+    res.status(200).json({ message: "Logout successful" });
+  } catch (err) {
+    res.status(500).json({ error: "Logout failed" });
+  }
+});
+
+// ✅ Reuse pool in routes
+app.get("/employee", async (req, res) => {
+  try {
+    const pool = await connection(); // reuse connection
+    const result = await pool
+      .request()
+      .query("select * from dbo.EmployeeDetails");
+    res.json(result.recordset);
+  } catch (error) {
+    console.error("❌ Error fetching employees:", error);
+    res.status(500).send(error.message);
+  }
+});
+
+app.post("/Addemployee", async (req, res) => {
+  const { firstname, lastname, current_location, phone_number } = req.body;
+
+  try {
+    // Validate inputs
+    if (!firstname || !lastname || !current_location || !phone_number) {
+      return res.status(400).send("❌ Missing required fields");
+    }
+
+    const pool = await connection(); // ✅ reuses the connection pool
+
+    await pool
+      .request()
+      .input("firstname", sql.VarChar(50), firstname)
+      .input("lastname", sql.VarChar(50), lastname)
+      .input("current_location", sql.VarChar(100), current_location)
+      .input("phone_number", sql.BigInt, phone_number).query(`
+        INSERT INTO EmployeeDetails (firstname, lastname, current_location, phone_number)
+        VALUES (@firstname, @lastname, @current_location, @phone_number)
+      `);
+
+    res.status(201).send("✅ Employee added successfully");
+  } catch (error) {
+    console.error("❌ Error inserting employee:", error);
+    res.status(500).send("Database insert failed");
+  }
+});
+
+app.get("/EmployeeDetails/:id", async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10); // ✅ convert string to integer
+
+    if (isNaN(id)) {
+      return res.status(400).send("❌ Invalid ID format");
+    }
+
+    const pool = await connection();
+    const result = await pool
+      .request()
+      .input("id", sql.Int, id) // ✅ correct usage
+      .query("SELECT * FROM dbo.EmployeeDetails WHERE id = @id");
+
+    if (result.recordset.length === 0) {
+      return res.status(404).send("❌ Employee not found");
+    }
+
+    res.status(200).json(result.recordset[0]); // return single employee
+  } catch (error) {
+    console.error("❌ Error fetching employee by id:", error);
+    res.status(500).send("Database fetch failed");
+  }
+});
+
+//   const id = parseInt(req.params.id);
+//   const { firstname, lastname, current_location, phone_number } = req.body;
+
+//   try {
+//     if (!id) {
+//       return res.status(403).send("❌ Invalid employee ID");
+//     }
+
+//     if (!firstname || !lastname || !current_location || !phone_number) {
+//       return res.status(400).send("❌ Missing required fields");
+//     }
+
+//     const pool = await connection();
+
+//     const result = await pool.request()
+//       .input("id", sql.Int, id) // ✅ Add this for WHERE condition
+//       .input("firstname", sql.VarChar(50), firstname)
+//       .input("lastname", sql.VarChar(50), lastname)
+//       .input("current_location", sql.VarChar(100), current_location)
+//       .input("phone_number", sql.BigInt, phone_number)
+//       .query(`
+//         UPDATE dbo.EmployeeDetails
+//         SET firstname = @firstname,
+//             lastname = @lastname,
+//             current_location = @current_location,
+//             phone_number = @phone_number
+//         WHERE id = @id
+//       `);
+
+//     res.status(200).json({
+//       message: "✅ Employee updated successfully",
+//       rowsAffected: result.rowsAffected
+//     });
+
+//   } catch (error) {
+//     console.error("❌ Error updating employee:", error);
+//     res.status(500).send("Database update failed");
+//   }
+// });
+
+app.patch("/UpdateEmployee/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  const { firstname, lastname, current_location, phone_number } = req.body;
+
+  try {
+    if (!id) {
+      return res.status(403).send("❌ ID is missing");
+    }
+    if (!firstname || !lastname || !current_location || !phone_number) {
+      return res.status(400).send("❌ Missing required fields");
+    }
+
+    const pool = await connection();
+    const result = await pool
+      .request()
+      .input("id", sql.Int, id) // ✅ FIXED
+      .input("firstname", sql.VarChar(50), firstname)
+      .input("lastname", sql.VarChar(50), lastname)
+      .input("current_location", sql.VarChar(100), current_location)
+      .input("phone_number", sql.BigInt, phone_number).query(`
+        UPDATE dbo.EmployeeDetails
+        SET firstname = @firstname,
+            lastname = @lastname,
+            current_location = @current_location,
+            phone_number = @phone_number
+        WHERE id = @id
+      `);
+
+    if (result.rowsAffected[0] === 0) {
+      return res.status(404).send("❌ Employee not found");
+    }
+
+    res.status(200).send("✅ Employee updated successfully");
+  } catch (error) {
+    console.error("❌ Error updating employee:", error);
+    res.status(500).send("Database update failed");
+  }
+});
+
+app.delete("/DeleteEmployee/:id", async (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  try {
+    if (isNaN(id)) {
+      return res.status(400).send("❌ Invalid ID");
+    }
+
+    const pool = await connection();
+    const result = await pool.request().input("id", sql.Int, id).query(`
+        DELETE FROM EmployeeDetails
+        WHERE id = @id
+      `);
+
+    if (result.rowsAffected[0] === 0) {
+      return res.status(404).send("❌ Employee not found");
+    }
+
+    res.status(200).json({
+      message: "✅ Employee deleted successfully",
+      rowsAffected: result.rowsAffected,
+    });
+  } catch (error) {
+    console.error("❌ Error deleting employee:", error);
+    res.status(500).send("Database delete failed");
+  }
+});
+
+app.get("/time", (req, res) => {
+  // Request headers (from client, read-only)
+  console.log("Request headers:", req.headers);
+
+  // Add custom headers to response
+  res.setHeader("kunal-das", "testing-purpose");
+  res.setHeader("new-test", "new-purpose");
+
+  const time = new Date().toLocaleTimeString(); // Local time
+  const serverTime = new Date().toISOString(); // UTC ISO time
+
+  res.status(200).json({
+    localTime: time,
+    serverTime: serverTime,
+  });
+});
+app.get(
+  "/middleware",
+  (req, res, next) => {
+    console.log("I am the 1st middleware");
+    next();
+  },
+  (req, res, next) => {
+    console.log("I am the 2nd middleware");
+    next();
+  },
+  (req, res, next) => {
+    console.log("I am the 3rd middleware");
+    next();
+  },
+  (req, res) => {
+    console.log("Final handler called");
+    res.send({ message: "nice to meet you" });
+    // ❌ don't call next() here
+  }
+);
+app.get("/download", (req, res) => {
+  const filePath = path.join(
+    "D:",
+    "interview mern",
+    "mern-interview",
+    "src",
+    "Javascript begin",
+    "Files",
+    "Bpo_job.pdf"
+  );
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error("Error sending file:", err);
+      res.status(500).send("File not found!");
+    }
+  });
+});
+app.listen(4000, () => {
+  console.log("🚀 Your server is running on :4000");
+});
