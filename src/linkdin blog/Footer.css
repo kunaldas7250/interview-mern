@@ -1,5 +1,11 @@
-.footer-parent {
+.page-container {
   width: 100%;
+  max-width: 1100px;   /* ✅ Same width for all pages */
+  margin: 0 auto;      /* ✅ Centers the container */
+  padding: 20px;       /* ✅ Consistent padding */
+}
+.footer-parent {
+  /* width: 100%; */
   padding: 40px 20px;
   background: #1a1a1a; /* Dark background */
   display: flex;

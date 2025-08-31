@@ -34,7 +34,7 @@ const HeaderSection = () => {
   };
 
   return (
-    <div className="parentcontainer">
+    <div className="page-container  parentcontainer">
       {/* Header */}
       <motion.div
         className="header"

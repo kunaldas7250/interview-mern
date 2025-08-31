@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import "./Tech.css"
 const Technical_skill = () => {
   return (
-    <motion.div className="parent">
+    <motion.div className="page-container  parent">
       <h1>Technical Skill</h1>
       <ul>
         <li>

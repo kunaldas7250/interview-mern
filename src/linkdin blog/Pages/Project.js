@@ -162,7 +162,7 @@ const Project = () => {
   const [data] = useState(projects);
 
   return (
-    <motion.div className="parentcontainer">
+    <motion.div className="page-container  parentcontainer">
       <div className="childcontainer">
         <motion.img src={img} alt="pic not found" />
         {/* project section */}

@@ -1,5 +1,12 @@
+.page-container {
+  width: 100%;
+  max-width: 1100px;   /* ✅ Same width for all pages */
+  margin: 0 auto;      /* ✅ Centers the container */
+  padding: 20px;       /* ✅ Consistent padding */
+}
 .contact-parent {
-  padding: 40px;
+    /* width: 515px; */
+  padding: 20px;
   text-align: center;
   background: #1a1a1a; /* dark mode */
   color: #fff;

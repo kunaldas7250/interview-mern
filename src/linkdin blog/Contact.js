@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="contact-parent"
+      className=" page-container  contact-parent"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -62,7 +62,7 @@ const Contact = () => {
       </NavLink>
 
       <motion.ul
-        className="contact-list"
+        className="  contact-list"
         initial="hidden"
         animate="visible"
       >

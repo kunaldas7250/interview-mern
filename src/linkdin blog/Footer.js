@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <motion.div
-      className="footer-parent"
+      className="page-container  footer-parent"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}

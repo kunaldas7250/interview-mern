@@ -43,7 +43,7 @@ const paragraphVariants = {
 const About = () => {
   return (
     <motion.div
-      className="parentcointener"
+      className=" page-container parentcointener"
       variants={containerVariants}
       initial="hidden"
       animate="visible"

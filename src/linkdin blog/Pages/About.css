@@ -1,6 +1,14 @@
 /* About.css */
 
+/* Parent container */
+.page-container {
+  width: 100%;
+  max-width: 1100px;   /* ✅ Same width for all pages */
+  margin: 0 auto;      /* ✅ Centers the container */
+  padding: 20px;       /* ✅ Consistent padding */
+}
 .parentcointener {
+ width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,12 +17,14 @@
   background: #f9f9f9;
 }
 
+/* Child Card */
 .child {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 30px;
-  max-width: 1000px;
+  /* max-width: 1000px; */
+  width: 100%;
   background: #ffffff;
   padding: 30px;
   border-radius: 12px;
@@ -58,4 +68,54 @@
   line-height: 1.6;
   color: #555;
   text-align: justify;
+}
+
+/* ================== RESPONSIVE STYLES ================== */
+
+/* For Tablets & Small Laptops */
+@media (max-width: 992px) {
+  .child {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .sumary h1 {
+    font-size: 24px;
+  }
+
+  .sumary p {
+    font-size: 15px;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 500px) {
+  .parentcointener {
+    padding: 20px;
+  }
+
+  .child {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sumary h1 {
+    font-size: 20px;
+  }
+
+  .sumary p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
