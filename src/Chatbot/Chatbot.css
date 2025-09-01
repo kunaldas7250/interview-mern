@@ -1,0 +1,129 @@
+/* Main chatbot container */
+.chatbot-container {
+  display: flex;
+  width: 800px;   /* sidebar + chat area */
+  height: 500px;
+  margin: 20px auto;
+  background: #1e1e1e;
+  color: white;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Sidebar inside container */
+.sidebar {
+  width: 250px;
+  background: #151515;
+  color: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+  overflow-y: auto;
+}
+
+/* Messages inside sidebar */
+.sidebar-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-messages p {
+  padding: 10px;
+  background: #2a2a2a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  word-wrap: break-word;
+}
+
+.sidebar-messages p:hover {
+  background: #444;
+}
+
+/* Chat area (main content) */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+/* Chat title */
+.chatbot-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Chat history */
+.chat-history {
+  flex: 1; /* take all available vertical space */
+  overflow-y: auto;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+  background: #2c2c2c;
+}
+
+/* Chat messages */
+.chat-message {
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  max-width: 80%;
+}
+
+.chat-message.user {
+  background: #0078ff;
+  color: white;
+  text-align: right;
+  margin-left: auto;
+}
+
+.chat-message.bot {
+  background: #444;
+  color: #ddd;
+  text-align: left;
+  margin-right: auto;
+}
+
+/* Input area */
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background: #333;
+  color: white;
+}
+
+.chat-input::placeholder {
+  color: #aaa;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 20px;
+  color: #bbb;
+}
+
+.send-icon {
+  color: #00c853;
+}
+
+.file-input {
+  background: #222;
+  color: white;
+  font-size: 12px;
+}

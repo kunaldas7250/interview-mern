@@ -4,7 +4,8 @@ const sql = require("mssql");
 const Dbconnection = {
   user: "sa",
   password: "@Kunal143",
-  database: "SalesDB",
+  // database: "SalesDB",
+  database:"master",
   server: "localhost",
   port: 1433,
   options: {
