@@ -1,0 +1,91 @@
+.parentcointainer {
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.childMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.parentmenu {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.login-signup {
+  margin-bottom: 15px;
+}
+
+.login-signup button {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #ff3b3f;
+  color: white;
+  cursor: pointer;
+}
+
+.login-signup p {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #666;
+}
+
+.support {
+  margin-bottom: 15px;
+}
+
+.support button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.supportul ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.supportul ul li {
+  padding: 6px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.supportul ul li:last-child {
+  border-bottom: none;
+}
+
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+img {
+  height: 40px;
+  cursor: pointer;
+}

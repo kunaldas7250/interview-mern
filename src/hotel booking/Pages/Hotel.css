@@ -1,0 +1,93 @@
+.card {
+  padding: 20px;
+}
+
+.photo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.hotel-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.hotel-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.description {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.rating-location {
+  color: #555;
+  font-size: 14px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.box, .enviro {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  background: #f1f1f1;
+}
+
+.enviro {
+  background: #d4f5d0;
+  color: #2d7d2d;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.price-book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.price {
+  font-weight: bold;
+  color: #0077b6;
+}
+
+.book-btn {
+  padding: 6px 14px;
+  border: none;
+  background: #0077b6;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.book-btn:hover {
+  background: #005f8a;
+}

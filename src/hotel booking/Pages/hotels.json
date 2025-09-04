@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "hotelName": "Grand Villa 001",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 4006
+  },
+  {
+    "id": 2,
+    "hotelName": "Ocean Resort 002",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 7543
+  },
+  {
+    "id": 3,
+    "hotelName": "Royal Plaza 003",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 5456
+  },
+  {
+    "id": 4,
+    "hotelName": "Grand Resort 004",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 3791
+  },
+  {
+    "id": 5,
+    "hotelName": "Heritage Plaza 005",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 2217
+  },
+  {
+    "id": 6,
+    "hotelName": "Skyline Heights 006",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 5436
+  },
+  {
+    "id": 7,
+    "hotelName": "Luxury Plaza 007",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 4278
+  },
+  {
+    "id": 8,
+    "hotelName": "Ocean Suites 008",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 4787
+  },
+  {
+    "id": 9,
+    "hotelName": "Ocean Towers 009",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 9841
+  },
+  {
+    "id": 10,
+    "hotelName": "Royal Resort 010",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 5112
+  },
+  {
+    "id": 11,
+    "hotelName": "Silver Retreat 011",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 6945
+  },
+  {
+    "id": 12,
+    "hotelName": "Grand Lodge 012",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 6392
+  },
+  {
+    "id": 13,
+    "hotelName": "Golden Resort 013",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 6522
+  },
+  {
+    "id": 14,
+    "hotelName": "Sunset Retreat 014",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 6729
+  },
+  {
+    "id": 15,
+    "hotelName": "Royal Palace 015",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 7417
+  },
+  {
+    "id": 16,
+    "hotelName": "Green Resort 016",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 9006
+  },
+  {
+    "id": 17,
+    "hotelName": "Royal Suites 017",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 4277
+  },
+  {
+    "id": 18,
+    "hotelName": "Silver Inn 018",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 5032
+  },
+  {
+    "id": 19,
+    "hotelName": "Skyline Villa 019",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 7749
+  },
+  {
+    "id": 20,
+    "hotelName": "Sunset Inn 020",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 6375
+  },
+  {
+    "id": 21,
+    "hotelName": "Ocean Lodge 021",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 5108
+  },
+  {
+    "id": 22,
+    "hotelName": "Heritage Towers 022",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 7608
+  },
+  {
+    "id": 23,
+    "hotelName": "Grand Towers 023",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 8732
+  },
+  {
+    "id": 24,
+    "hotelName": "Silver Suites 024",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 4193
+  },
+  {
+    "id": 25,
+    "hotelName": "Skyline Plaza 025",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 9179
+  },
+  {
+    "id": 26,
+    "hotelName": "Skyline Lodge 026",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 5241
+  },
+  {
+    "id": 27,
+    "hotelName": "Ocean Villa 027",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 3143
+  },
+  {
+    "id": 28,
+    "hotelName": "Heritage Heights 028",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 4152
+  },
+  {
+    "id": 29,
+    "hotelName": "Golden Plaza 029",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 5271
+  },
+  {
+    "id": 30,
+    "hotelName": "Skyline Inn 030",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 6174
+  },
+  {
+    "id": 31,
+    "hotelName": "Royal Palace 031",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 9054
+  },
+  {
+    "id": 32,
+    "hotelName": "Ocean Inn 032",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 8488
+  },
+  {
+    "id": 33,
+    "hotelName": "Sunset Resort 033",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 5152
+  },
+  {
+    "id": 34,
+    "hotelName": "Sunset Lodge 034",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 6334
+  },
+  {
+    "id": 35,
+    "hotelName": "Heritage Palace 035",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 7572
+  },
+  {
+    "id": 36,
+    "hotelName": "Heritage Villa 036",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 8296
+  },
+  {
+    "id": 37,
+    "hotelName": "Royal Villa 037",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 5561
+  },
+  {
+    "id": 38,
+    "hotelName": "Luxury Palace 038",
+    "city": "Bangalore",
+    "cityHotelCount": 22,
+    "price": 9813
+  },
+  {
+    "id": 39,
+    "hotelName": "Heritage Inn 039",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 6158
+  },
+  {
+    "id": 40,
+    "hotelName": "Green Heights 040",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 6988
+  },
+  {
+    "id": 41,
+    "hotelName": "Ocean Retreat 041",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 8246
+  },
+  {
+    "id": 42,
+    "hotelName": "Heritage Heights 042",
+    "city": "Bangalore",
+    "cityHotelCount": 22,
+    "price": 9524
+  },
+  {
+    "id": 43,
+    "hotelName": "Sunset Retreat 043",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 6002
+  },
+  {
+    "id": 44,
+    "hotelName": "Royal Retreat 044",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 9198
+  },
+  {
+    "id": 45,
+    "hotelName": "Skyline Palace 045",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 3973
+  },
+  {
+    "id": 46,
+    "hotelName": "Royal Resort 046",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 7995
+  },
+  {
+    "id": 47,
+    "hotelName": "Royal Heights 047",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 8273
+  },
+  {
+    "id": 48,
+    "hotelName": "Ocean Lodge 048",
+    "city": "Bangalore",
+    "cityHotelCount": 22,
+    "price": 9756
+  },
+  {
+    "id": 49,
+    "hotelName": "Ocean Villa 049",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 6322
+  },
+  {
+    "id": 50,
+    "hotelName": "Golden Towers 050",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 9609
+  },
+  {
+    "id": 51,
+    "hotelName": "Skyline Villa 051",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 5268
+  },
+  {
+    "id": 52,
+    "hotelName": "Luxury Heights 052",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 5698
+  },
+  {
+    "id": 53,
+    "hotelName": "Skyline Towers 053",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 2524
+  },
+  {
+    "id": 54,
+    "hotelName": "Grand Plaza 054",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 6537
+  },
+  {
+    "id": 55,
+    "hotelName": "Sunset Towers 055",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 2058
+  },
+  {
+    "id": 56,
+    "hotelName": "Grand Towers 056",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 2552
+  },
+  {
+    "id": 57,
+    "hotelName": "Silver Resort 057",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 6211
+  },
+  {
+    "id": 58,
+    "hotelName": "Green Lodge 058",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 3755
+  },
+  {
+    "id": 59,
+    "hotelName": "Ocean Plaza 059",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 6720
+  },
+  {
+    "id": 60,
+    "hotelName": "Skyline Lodge 060",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 8615
+  },
+  {
+    "id": 61,
+    "hotelName": "Skyline Resort 061",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 2794
+  },
+  {
+    "id": 62,
+    "hotelName": "Silver Suites 062",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 5367
+  },
+  {
+    "id": 63,
+    "hotelName": "Grand Resort 063",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 2496
+  },
+  {
+    "id": 64,
+    "hotelName": "Silver Resort 064",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 4036
+  },
+  {
+    "id": 65,
+    "hotelName": "Skyline Heights 065",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 5675
+  },
+  {
+    "id": 66,
+    "hotelName": "Golden Inn 066",
+    "city": "Bangalore",
+    "cityHotelCount": 22,
+    "price": 4281
+  },
+  {
+    "id": 67,
+    "hotelName": "Skyline Resort 067",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 5630
+  },
+  {
+    "id": 68,
+    "hotelName": "Royal Palace 068",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 7342
+  },
+  {
+    "id": 69,
+    "hotelName": "Grand Resort 069",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 9588
+  },
+  {
+    "id": 70,
+    "hotelName": "Ocean Suites 070",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 5978
+  },
+  {
+    "id": 71,
+    "hotelName": "Skyline Suites 071",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 9392
+  },
+  {
+    "id": 72,
+    "hotelName": "Ocean Suites 072",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 2017
+  },
+  {
+    "id": 73,
+    "hotelName": "Green Lodge 073",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 4336
+  },
+  {
+    "id": 74,
+    "hotelName": "Heritage Lodge 074",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 3268
+  },
+  {
+    "id": 75,
+    "hotelName": "Green Towers 075",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 9935
+  },
+  {
+    "id": 76,
+    "hotelName": "Sunset Heights 076",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 2499
+  },
+  {
+    "id": 77,
+    "hotelName": "Grand Palace 077",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 6785
+  },
+  {
+    "id": 78,
+    "hotelName": "Heritage Heights 078",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 3289
+  },
+  {
+    "id": 79,
+    "hotelName": "Heritage Resort 079",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 8974
+  },
+  {
+    "id": 80,
+    "hotelName": "Royal Plaza 080",
+    "city": "Bangalore",
+    "cityHotelCount": 22,
+    "price": 2556
+  },
+  {
+    "id": 81,
+    "hotelName": "Golden Resort 081",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 9713
+  },
+  {
+    "id": 82,
+    "hotelName": "Skyline Plaza 082",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 6870
+  },
+  {
+    "id": 83,
+    "hotelName": "Sunset Resort 083",
+    "city": "Mumbai",
+    "cityHotelCount": 25,
+    "price": 5434
+  },
+  {
+    "id": 84,
+    "hotelName": "Sunset Heights 084",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 4591
+  },
+  {
+    "id": 85,
+    "hotelName": "Skyline Retreat 085",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 3955
+  },
+  {
+    "id": 86,
+    "hotelName": "Golden Inn 086",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 7502
+  },
+  {
+    "id": 87,
+    "hotelName": "Luxury Retreat 087",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 9610
+  },
+  {
+    "id": 88,
+    "hotelName": "Grand Lodge 088",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 7088
+  },
+  {
+    "id": 89,
+    "hotelName": "Royal Resort 089",
+    "city": "Manali",
+    "cityHotelCount": 10,
+    "price": 6404
+  },
+  {
+    "id": 90,
+    "hotelName": "Heritage Villa 090",
+    "city": "Chennai",
+    "cityHotelCount": 18,
+    "price": 3085
+  },
+  {
+    "id": 91,
+    "hotelName": "Royal Towers 091",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 5027
+  },
+  {
+    "id": 92,
+    "hotelName": "Ocean Lodge 092",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 8830
+  },
+  {
+    "id": 93,
+    "hotelName": "Green Plaza 093",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 8611
+  },
+  {
+    "id": 94,
+    "hotelName": "Grand Heights 094",
+    "city": "Pune",
+    "cityHotelCount": 14,
+    "price": 4452
+  },
+  {
+    "id": 95,
+    "hotelName": "Ocean Villa 095",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 2945
+  },
+  {
+    "id": 96,
+    "hotelName": "Heritage Inn 096",
+    "city": "Delhi",
+    "cityHotelCount": 20,
+    "price": 4231
+  },
+  {
+    "id": 97,
+    "hotelName": "Sunset Towers 097",
+    "city": "Kolkata",
+    "cityHotelCount": 15,
+    "price": 7878
+  },
+  {
+    "id": 98,
+    "hotelName": "Skyline Villa 098",
+    "city": "Hyderabad",
+    "cityHotelCount": 17,
+    "price": 6140
+  },
+  {
+    "id": 99,
+    "hotelName": "Green Palace 099",
+    "city": "Goa",
+    "cityHotelCount": 12,
+    "price": 2756
+  },
+  {
+    "id": 100,
+    "hotelName": "Green Palace 100",
+    "city": "Jaipur",
+    "cityHotelCount": 16,
+    "price": 2029
+  }
+]

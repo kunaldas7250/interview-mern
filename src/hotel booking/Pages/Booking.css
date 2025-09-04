@@ -1,0 +1,189 @@
+/* 🌐 Parent container */
+.parentcontaner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 📦 Booking main box */
+.bookingcontainer {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* 🔝 Navigation */
+.booking-nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 12px 0;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+}
+
+.booking-nav li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  transition: color 0.2s ease-in;
+}
+
+.booking-nav li:hover {
+  color: #0077ff;
+}
+
+/* 📝 Input section */
+.booking {
+  display: flex;
+  justify-content: center;
+  width: 1500px;
+}
+
+.booking-inputs {
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 1300px;
+  display: flex;
+  position: relative;
+  right: 90px;
+}
+
+/* 🎯 Common input style */
+.booking-inputs input {
+  /* width: 200px; */
+  gap: 50px;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.booking-inputs input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 6px rgba(0, 119, 255, 0.3);
+}
+
+/* 🏨 Hotel input */
+.hotel {
+  position: relative;
+  width: fit-content;
+}
+
+.hotel p {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #666;
+  
+}
+
+.hotel svg {
+  position: absolute;
+  right: 12px;
+  top: 40px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* 📋 Hotel dropdown list */
+.hotel-list {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 20;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-item {
+  padding: 12px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.hotel-item:hover {
+  background: #f9f9f9;
+}
+
+.hotel-item p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.hotel-item .flex {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #777;
+}
+
+/* 📅 Date Pickers */
+.checkin, .checkout {
+  position: relative;
+  width: fit-content;
+}
+
+.checkin p, .checkout p {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #666;
+}
+
+.checkin svg, .checkout svg {
+  position: absolute;
+  right: 12px;
+  top: 40px;
+  font-size: 18px;
+  color: #0077ff;
+  cursor: pointer;
+}
+
+.checkincalender {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  z-index: 15;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .bookingcontainer {
+    padding: 15px;
+  }
+
+  .booking-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .booking-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+

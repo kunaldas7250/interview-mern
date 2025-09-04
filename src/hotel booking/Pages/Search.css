@@ -1,0 +1,47 @@
+.parent {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centers navbar horizontally */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa; /* light background */
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1200px; /* keeps content centered and not too wide */
+  display: flex;
+  justify-content: space-between; /* space between icon & booking */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: pink;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: #0077b6; /* nice blue shade */
+  position: relative;
+  bottom: 40px;
+}
+
+.booking {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing if Bokking has multiple inputs */
+}
+
+
+
+
+
+
+
+
+
+
+ 
