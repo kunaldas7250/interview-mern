@@ -1,0 +1,61 @@
+/* Container centers the form */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+}
+
+/* Card-style form */
+.register-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 380px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #2193b0;
+}
+
+/* Inputs */
+.register-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.register-form input:focus {
+  border: 1px solid #2193b0;
+}
+
+/* Button */
+.register-btn {
+  padding: 12px;
+  font-size: 16px;
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.register-btn:hover {
+  background: #17657a;
+}
+
+/* Error text */
+.error-text {
+  font-size: 14px;
+  color: red;
+}

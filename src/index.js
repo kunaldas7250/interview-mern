@@ -46,20 +46,49 @@
 
 // reportWebVitals();
 
+// import React, { Suspense, lazy } from "react";
+// import ReactDOM from 'react-dom/client';
+// import './index.css';
+// import reportWebVitals from './reportWebVitals';
+// import ErrorBoundry from "./Lazy Loading Class Component/ErrorBoundry"
+// import { GoogleOAuthProvider } from '@react-oauth/google';
+
+// // ✅ Google OAuth Client ID
+// const client_id = "1076818382659-ilc2780ktbd50g2q44er2q0j5pmt5ln1.apps.googleusercontent.com";
+
+// // ✅ Lazy load Allroutes (NOT Header)
+// const LazyApi = lazy(() => import("./INternshla/Page/Home"));
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <React.StrictMode>
+//     <GoogleOAuthProvider clientId={client_id}>
+//       <ErrorBoundry>
+//         <Suspense fallback={<h3 style={{ color: "grey" }}>Loading...</h3>}>
+//           <LazyApi />
+//         </Suspense>
+//       </ErrorBoundry>
+//     </GoogleOAuthProvider>
+//   </React.StrictMode>
+// );
+
+// reportWebVitals();
+
 import React, { Suspense, lazy } from "react";
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import ErrorBoundry from "./Lazy Loading Class Component/ErrorBoundry"
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import ErrorBoundry from "./Lazy Loading Class Component/ErrorBoundry";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 // ✅ Google OAuth Client ID
-const client_id = "1076818382659-ilc2780ktbd50g2q44er2q0j5pmt5ln1.apps.googleusercontent.com";
+const client_id =
+  "1076818382659-ilc2780ktbd50g2q44er2q0j5pmt5ln1.apps.googleusercontent.com";
 
-// ✅ Lazy load Allroutes (NOT Header)
-const LazyApi = lazy(() => import("./hotel booking/Pages/hote"));
+// ✅ Lazy load AllRoutes (not nav)
+const LazyApi = lazy(() => import("./INternshla/Page/Template"));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={client_id}>

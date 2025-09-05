@@ -4,6 +4,7 @@
   align-items: center;
   height: 100vh;
   background: linear-gradient(to right, #6dd5ed, #2193b0);
+  width: 100%;
 }
 
 .child {
@@ -12,10 +13,12 @@
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 400px;
 }
 
 .child img {
-  width: 150px;
+  width: 400px;
   height: auto;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -23,11 +26,15 @@
 
 .buttonparent {
   margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .btn {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 30px;
   background: #2193b0;
   color: white;
   border: none;
