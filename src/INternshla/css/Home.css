@@ -1,0 +1,41 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+}
+
+.child {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.child img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.buttonparent {
+  margin: 15px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #17657a;
+}
