@@ -13,12 +13,12 @@ const Template = () => {
 
   return (
     <motion.div
-      className="parent"
+      className="template-parent"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="child">
+      <div className="template-child">
         <div className="text">
           <p>📄 Use this Template</p>
         </div>

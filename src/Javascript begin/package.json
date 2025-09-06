@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node recaptcha.js",
-    "dev": "nodemon recaptcha.js"
+    "start": "node internshala.js",
+    "dev": "nodemon internshala.js"
   },
   "keywords": [],
   "author": "",

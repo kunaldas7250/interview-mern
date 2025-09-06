@@ -1,4 +1,4 @@
-/* Container centers the form */
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
   background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
 
-/* Card-style form */
+
 .login-form {
   background: white;
   padding: 30px;
@@ -54,7 +54,6 @@
   background: #17657a;
 }
 
-/* Error text */
 .error-text {
   font-size: 14px;
   color: red;

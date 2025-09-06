@@ -1,88 +1,19 @@
-// import React, { useState } from 'react'
-// import { useForm } from "react-hook-form";
-// import { motion } from "framer-motion";
-// const Resume_builder_form = () => {
-//     const [isshow,setisshow]=useState(false)
-//     const [skillishsow,setskillishsow]=useState(false)
-//     const {
-//         register,
-//         handleSubmit,
-//         formState: { errors },
-//       } = useForm();
 
-//       const onSubmit = (data) => {
-//     console.log("Login Data:", data);
-//     // Call API here
-//   };
-//   const handleeducation=()=>{
-//     setisshow((prev)=>!prev)
-//   }
-//   const handleskill=()=>{
-// setskillishsow((prev)=>!prev)
-//   }
-//   return (
-//     <motion.div className='parentform'>
-//       <motion.form onSubmit={handleSubmit(onSubmit)}>
-//         <label>first name:</label>
-//         <input {...register("firstname",{required:"firstname is required"})}/>
-//         {errors.firstname && <span>First name is required</span>}
-
-//         <label>lastname:</label>
-//         <input {...register("lastname",{required:"lastname is required"})}/>
-//         {errors.lastname && <span> lastname is required</span>}
-
-//         <label>phone number:</label>
-//         <input {...register("phonenumber",{required:"phone number is required"})}/>
-//         {errors.phonenumber && <span>phone number is required</span>}
-
-//         <label>Education</label>
-//         <input {...register("education",{required:"education is required"})}/>
-//         {errors.education && <span>Education is required</span>}
-//         <button onClick={handleeducation}> Add education</button>
-//         {isshow && (
-//             <>
-//             <label>Education</label>
-//         <input {...register("education",{required:"education is required"})}/>
-//         {errors.education && <span>Education is required</span>}
-//         <button onClick={handleeducation}> Add education</button>
-//         </>
-//         )}
-//         <label>Experiance</label>
-//         <input {...register("experiance",{required:"Experiance is required"})}/>
-//         {errors.experiance && <span>Experiance is required</span>}
-
-//         <label>skill</label>
-//         <input {...register("skill",{required:"skill"})}/>
-//         {errors.skill && <span>Skill is required</span>}
-//         <button onClick={handleskill}>Add skill</button>
-//         {skillishsow && (
-//             <>
-//             <label>skill</label>
-//         <input {...register("skill",{required:"skill"})}/>
-//         {errors.skill && <span>Skill is required</span>}
-//         <button onClick={handleskill}>Add skill</button>
-//             </>
-//         )}
-//         <button> Submit</button>
-//       </motion.form>
-//     </motion.div>
-//   )
-// }
-
-// export default Resume_builder_form
-
-
-
-import React from "react";
+import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { motion } from "framer-motion";
-import "../css/ResumeForm.css"
+import axios from "axios";
+import "../css/ResumeForm.css";
+
 const Resume_builder_form = () => {
+  const [resumeData, setResumeData] = useState([]);
+
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       educations: [{ education: "" }],
@@ -90,22 +21,121 @@ const Resume_builder_form = () => {
     },
   });
 
-  // Dynamic Education fields
   const { fields: eduFields, append: addEducation, remove: removeEducation } =
-    useFieldArray({
-      control,
-      name: "educations",
-    });
+    useFieldArray({ control, name: "educations" });
 
-  // Dynamic Skill fields
   const { fields: skillFields, append: addSkill, remove: removeSkill } =
-    useFieldArray({
-      control,
-      name: "skills",
-    });
+    useFieldArray({ control, name: "skills" });
 
-  const onSubmit = (data) => {
-    console.log("Resume Data:", data);
+  
+  const onSubmit = async (data) => {
+    try {
+      const formData = new FormData();
+      if (data.photo && data.photo[0]) formData.append("photo", data.photo[0]);
+
+      formData.append("firstname", data.firstname);
+      formData.append("lastname", data.lastname);
+      formData.append("phonenumber", data.phonenumber);
+      formData.append("experience", data.experience);
+      formData.append("educations", JSON.stringify(data.educations));
+      formData.append("skills", JSON.stringify(data.skills));
+
+      const response = await axios.post("http://localhost:4000/resume", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      
+      setResumeData((prev) => [
+        ...prev,
+        {
+          ...response.data,
+          educations: response.data.educations || [],
+          skills: response.data.skills || [],
+        },
+      ]);
+
+      reset();
+    } catch (error) {
+      console.error("Submit failed", error);
+    }
+  };
+
+ 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4000/resume/${id}`);
+      setResumeData((prev) => prev.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("Delete failed", error);
+    }
+  };
+
+ 
+  const handleView = (item) => {
+    alert(`
+      ID: ${item.id}
+      Name: ${item.firstname} ${item.lastname}
+      Education: ${Array.isArray(item.educations)
+        ? item.educations.map((e) => e.education).join(", ")
+        : ""}
+      Experience: ${item.experience}
+      Skills: ${Array.isArray(item.skills)
+        ? item.skills.map((s) => s.skill).join(", ")
+        : ""}
+    `);
+  };
+
+  
+const handleUpdate = async (item) => {
+  try {
+    
+    const updatedItem = {
+      ...item,
+      educations: item.educations || [],
+      skills: item.skills || [],
+    };
+
+    const response = await axios.put(
+      `http://localhost:4000/resume/${item.id}`,
+      updatedItem,
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    setResumeData((prev) =>
+      prev.map((r) =>
+        r.id === item.id
+          ? response.data 
+          : r
+      )
+    );
+  } catch (error) {
+    console.error("Update failed", error);
+  }
+};
+
+
+
+  
+  const handleDownload = (item) => {
+    const blob = new Blob(
+      [
+        `ID: ${item.id}\n` +
+          `Name: ${item.firstname} ${item.lastname}\n` +
+          `Education: ${Array.isArray(item.educations)
+            ? item.educations.map((e) => e.education).join(", ")
+            : ""}\n` +
+          `Experience: ${item.experience}\n` +
+          `Skills: ${Array.isArray(item.skills)
+            ? item.skills.map((s) => s.skill).join(", ")
+            : ""}\n`,
+      ],
+      { type: "text/plain" }
+    );
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${item.firstname}_resume.txt`;
+    link.click();
   };
 
   return (
@@ -115,6 +145,7 @@ const Resume_builder_form = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
+      
       <motion.form
         onSubmit={handleSubmit(onSubmit)}
         className="resume-form"
@@ -123,11 +154,9 @@ const Resume_builder_form = () => {
       >
         <h2>Resume Builder</h2>
 
-        {/* Personal Info */}
-        <label>id:</label>
-        <input {...register("id",{required:"give Number"})}/>
-        {errors.id && <span>{errors.id.message}</span>}
-        
+        <label>Photo</label>
+        <input type="file" {...register("photo")} />
+
         <label>First Name:</label>
         <input {...register("firstname", { required: "First name is required" })} />
         {errors.firstname && <span>{errors.firstname.message}</span>}
@@ -140,54 +169,35 @@ const Resume_builder_form = () => {
         <input {...register("phonenumber", { required: "Phone number is required" })} />
         {errors.phonenumber && <span>{errors.phonenumber.message}</span>}
 
-        {/* Education Section */}
+        
         <h3>Education</h3>
         {eduFields.map((field, index) => (
           <div key={field.id} className="dynamic-field">
             <input
-              {...register(`educations.${index}.education`, {
-                required: "Education is required",
-              })}
+              {...register(`educations.${index}.education`, { required: "Education is required" })}
               placeholder={`Education ${index + 1}`}
             />
-            <button type="button" onClick={() => removeEducation(index)}>
-              ❌ Remove
-            </button>
-            {errors.educations?.[index]?.education && (
-              <span>{errors.educations[index].education.message}</span>
-            )}
+            <button type="button" onClick={() => removeEducation(index)}>❌ Remove</button>
           </div>
         ))}
-        <button type="button" onClick={() => addEducation({ education: "" })}>
-          ➕ Add Education
-        </button>
+        <button type="button" onClick={() => addEducation({ education: "" })}>➕ Add Education</button>
 
-        {/* Experience */}
         <label>Experience:</label>
         <input {...register("experience", { required: "Experience is required" })} />
         {errors.experience && <span>{errors.experience.message}</span>}
 
-        {/* Skills Section */}
+       
         <h3>Skills</h3>
         {skillFields.map((field, index) => (
           <div key={field.id} className="dynamic-field">
             <input
-              {...register(`skills.${index}.skill`, {
-                required: "Skill is required",
-              })}
+              {...register(`skills.${index}.skill`, { required: "Skill is required" })}
               placeholder={`Skill ${index + 1}`}
             />
-            <button type="button" onClick={() => removeSkill(index)}>
-              ❌ Remove
-            </button>
-            {errors.skills?.[index]?.skill && (
-              <span>{errors.skills[index].skill.message}</span>
-            )}
+            <button type="button" onClick={() => removeSkill(index)}>❌ Remove</button>
           </div>
         ))}
-        <button type="button" onClick={() => addSkill({ skill: "" })}>
-          ➕ Add Skill
-        </button>
+        <button type="button" onClick={() => addSkill({ skill: "" })}>➕ Add Skill</button>
 
         <motion.button
           type="submit"
@@ -198,6 +208,44 @@ const Resume_builder_form = () => {
           Submit
         </motion.button>
       </motion.form>
+
+      <div className="parent">
+        {resumeData.length > 0 && (
+          <div className="button">
+            {resumeData.map((item) => (
+              <div key={item.id} className="resume-card">
+                <p>ID: {item.id}</p>
+                <p>Full Name: {item.firstname} {item.lastname}</p>
+                <p>
+                  Education:{" "}
+                  {Array.isArray(item.educations) &&
+                    item.educations.map((e, idx) => (
+                      <span key={idx}>
+                        {e.education}{idx < item.educations.length - 1 ? ", " : ""}
+                      </span>
+                    ))}
+                </p>
+                <p>Experience: {item.experience}</p>
+                <p>
+                  Skills:{" "}
+                  {Array.isArray(item.skills) &&
+                    item.skills.map((s, idx) => (
+                      <span key={idx}>
+                        {s.skill}{idx < item.skills.length - 1 ? ", " : ""}
+                      </span>
+                    ))}
+                </p>
+                <div className="actions">
+                  <button onClick={() => handleDownload(item)}>Download</button>
+                  <button onClick={() => handleView(item)}>View</button>
+                  <button onClick={() => handleUpdate(item)}>Update</button>
+                  <button onClick={() => handleDelete(item.id)}>Delete</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 };

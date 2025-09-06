@@ -1,7 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import "../css/Register.css"; // ✅ external CSS
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../css/Register.css"; 
 
 const Register = () => {
   const {
@@ -10,10 +12,24 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  // ✅ submit function
-  const onSubmit = (data) => {
-    console.log("Register Data:", data);
-    // Call API here
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:4000/auth/signup", {
+        username: data.username,
+        password: data.password,
+        email: data.email,
+      });
+
+      console.log("✅ Register Data:", response.data);
+
+      
+      navigate("/login");
+
+    } catch (error) {
+      console.error("❌ Something went wrong:", error);
+    }
   };
 
   return (
@@ -38,9 +54,7 @@ const Register = () => {
           {...register("username", { required: true })}
           whileFocus={{ scale: 1.05 }}
         />
-        {errors.username && (
-          <span className="error-text">This field is required</span>
-        )}
+        {errors.username && <span className="error-text">This field is required</span>}
 
         <label>Password:</label>
         <motion.input
@@ -48,9 +62,7 @@ const Register = () => {
           {...register("password", { required: true })}
           whileFocus={{ scale: 1.05 }}
         />
-        {errors.password && (
-          <span className="error-text">This field is required</span>
-        )}
+        {errors.password && <span className="error-text">This field is required</span>}
 
         <label>Email:</label>
         <motion.input
@@ -58,10 +70,9 @@ const Register = () => {
           {...register("email", { required: true })}
           whileFocus={{ scale: 1.05 }}
         />
-        {errors.email && (
-          <span className="error-text">This field is required</span>
-        )}
+        {errors.email && <span className="error-text">This field is required</span>}
 
+        {/* Submit button */}
         <motion.button
           type="submit"
           className="register-btn"
@@ -70,6 +81,18 @@ const Register = () => {
         >
           Submit
         </motion.button>
+
+       
+        <Link to="/login">
+          <motion.button
+            type="button"
+            className="login-btn"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Login
+          </motion.button>
+        </Link>
       </motion.form>
     </motion.div>
   );

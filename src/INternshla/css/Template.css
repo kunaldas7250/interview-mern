@@ -1,4 +1,5 @@
-.parent {
+/* === TEMPLATE STYLES === */
+.template-parent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +8,7 @@
   min-height: 100vh;
 }
 
-.child {
+.template-child {
   text-align: center;
   background: white;
   padding: 25px;
@@ -16,7 +17,7 @@
   width: 90%;
 }
 
-.text p {
+.template-child .text p {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;

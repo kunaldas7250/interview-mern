@@ -1,4 +1,4 @@
-/* Container centers the form */
+
 .register-container {
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
   background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
 
-/* Card-style form */
+
 .register-form {
   background: white;
   padding: 30px;
@@ -25,7 +25,7 @@
   color: #2193b0;
 }
 
-/* Inputs */
+
 .register-form input {
   padding: 10px;
   border: 1px solid #ccc;
@@ -38,7 +38,7 @@
   border: 1px solid #2193b0;
 }
 
-/* Button */
+
 .register-btn {
   padding: 12px;
   font-size: 16px;
@@ -49,12 +49,22 @@
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
-
+.login-btn{
+  padding: 12px;
+  font-size: 16px;
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  width: 380px;
+}
 .register-btn:hover {
   background: #17657a;
 }
 
-/* Error text */
+
 .error-text {
   font-size: 14px;
   color: red;

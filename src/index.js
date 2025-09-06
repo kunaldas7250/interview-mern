@@ -86,7 +86,7 @@ const client_id =
   "1076818382659-ilc2780ktbd50g2q44er2q0j5pmt5ln1.apps.googleusercontent.com";
 
 // ✅ Lazy load AllRoutes (not nav)
-const LazyApi = lazy(() => import("./INternshla/Page/Template"));
+const LazyApi = lazy(() => import("./INternshla/Page/ALLroute"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

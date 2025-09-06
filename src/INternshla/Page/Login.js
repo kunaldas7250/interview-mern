@@ -1,7 +1,11 @@
+
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import "../css/Login.css"; // ✅ add external css
+import { useNavigate } from "react-router-dom"; 
+import "../css/Login.css";
+import axios from "axios";
 
 const Login = () => {
   const {
@@ -10,9 +14,23 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Login Data:", data);
-    // Call API here
+  const navigate = useNavigate(); 
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:4000/auth/login", {
+        username: data.username,
+        password: data.password,
+      }, { withCredentials: true }); 
+
+      console.log("✅ User logged in:", response.data);
+
+      
+      navigate("/nav");
+
+    } catch (error) {
+      console.error("❌ Login failed:", error);
+    }
   };
 
   return (
@@ -37,9 +55,7 @@ const Login = () => {
           {...register("username", { required: true })}
           whileFocus={{ scale: 1.05 }}
         />
-        {errors.username && (
-          <span className="error-text">This field is required</span>
-        )}
+        {errors.username && <span className="error-text">This field is required</span>}
 
         <label>Password:</label>
         <motion.input
@@ -47,9 +63,7 @@ const Login = () => {
           {...register("password", { required: true })}
           whileFocus={{ scale: 1.05 }}
         />
-        {errors.password && (
-          <span className="error-text">This field is required</span>
-        )}
+        {errors.password && <span className="error-text">This field is required</span>}
 
         <motion.button
           type="submit"

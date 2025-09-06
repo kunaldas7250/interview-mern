@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+
+
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import Template from "../Page/Template";   
+import axios from "axios";
 import "../css/Nav.css";
 
 const Nav = () => {
   const [isShow, setIsShow] = useState(false);
+  const [user, setUser] = useState(null); 
 
   const handleProfile = () => {
     setIsShow((prev) => !prev);
   };
 
-  // 🔽 Dropdown animation variants
+  // ✅ Fetch logged-in user info on mount
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get("http://localhost:4000/auth/me", {
+          withCredentials: true, 
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10, scale: 0.95 },
     visible: {
@@ -23,26 +43,23 @@ const Nav = () => {
   };
 
   return (
-    <motion.div className="parent">
-      <motion.div className="child">
+    <motion.div className="nav-parent">
+      <motion.div className="nav-child">
         <div className="text">
           <motion.p whileHover={{ scale: 1.05 }}>Resume Platform</motion.p>
         </div>
 
         <div className="button">
-          {/* NavLink for Create Resume */}
-          <NavLink to="/Createresume">
+          <NavLink to="/createresume">
             <motion.button whileHover={{ scale: 1.05 }}>
               Create your resume
             </motion.button>
           </NavLink>
 
-          {/* Profile button */}
           <motion.button whileHover={{ scale: 1.05 }} onClick={handleProfile}>
             Profile
           </motion.button>
 
-          {/* ✅ AnimatePresence for dropdown */}
           <AnimatePresence>
             {isShow && (
               <motion.div
@@ -52,10 +69,14 @@ const Nav = () => {
                 animate="visible"
                 exit="exit"
               >
-                <motion.p>username</motion.p>
-                <motion.p>password</motion.p>
-
-                {/* NavLink for Logout */}
+                {user ? (
+                  <>
+                    <motion.p>Username: {user.username}</motion.p>
+                    <motion.p>Password: {user.password}</motion.p>
+                  </>
+                ) : (
+                  <motion.p>Loading...</motion.p>
+                )}
                 <NavLink to="/register">
                   <motion.button whileHover={{ scale: 1.05 }}>
                     Logout
@@ -66,6 +87,8 @@ const Nav = () => {
           </AnimatePresence>
         </div>
       </motion.div>
+
+      <Template />
     </motion.div>
   );
 };
