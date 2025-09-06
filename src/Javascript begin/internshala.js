@@ -64,29 +64,70 @@ const storage=multer.diskStorage({
 })
 const upload = multer({ storage });
 
+
+//   const { username, password, email } = req.body;
+
+//   try {
+//     if (!username || !password || !email) {
+//       return res.status(403).send("Sorry, please fill all the details");
+//     }
+
+//     const hashpassword = await bcrypt.hash(password, 10);
+//     const pool = await connection();
+//     await pool
+//       .request()
+//       .input("username", sql.VarChar, username)
+//       .input("password", sql.VarChar, hashpassword)
+//       .input("email", sql.VarChar, email)
+//       .query(
+//         `INSERT INTO dbo.intershal_test(username,password,email) VALUES(@username,@password,@email)`
+//       );
+
+//     console.log("✅ User registered successfully");
+//     res.status(201).json({ message: "User registered successfully" });
+//   } catch (error) {
+//     console.error("❌ Register error:", error);
+//     res.status(500).json({ error: "Something went wrong" });
+//   }
+// });
 app.post("/auth/signup", async (req, res) => {
   const { username, password, email } = req.body;
+
   try {
     if (!username || !password || !email) {
-      res.status(403).send("sorry please fill the details");
+      return res.status(400).json({ error: "Please fill all fields" });
     }
-    const hashpassword = await bcrypt.hash(password, 10);
+
     const pool = await connection();
+
+    
+    const existingUser = await pool
+      .request()
+      .input("username", sql.VarChar, username)
+      .query("SELECT username FROM dbo.intershal_test WHERE username=@username");
+
+    if (existingUser.recordset.length > 0) {
+      return res.status(409).json({ error: "Username already exists" });
+    }
+
+    const hashPassword = await bcrypt.hash(password, 10);
+
     await pool
       .request()
       .input("username", sql.VarChar, username)
-      .input("password", sql.VarChar, hashpassword)
+      .input("password", sql.VarChar, hashPassword)
       .input("email", sql.VarChar, email)
       .query(
-        `insert into dbo.intershal_test(username,password,email) values(@username,@password,@email)`
+        `INSERT INTO dbo.intershal_test(username,password,email) VALUES(@username,@password,@email)`
       );
-    console.log("user register sussfully");
-    res.status(201).json({ message: "User registered successfully" });
 
+    res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
-    console.error(`something went wrong ${error}`);
+    console.error("❌ Signup error:", error); // <- important
+    res.status(500).json({ error: "Something went wrong on server" });
   }
 });
+
 app.post("/auth/login", async (req, res) => {
   const { username, password } = req.body;
   try {
