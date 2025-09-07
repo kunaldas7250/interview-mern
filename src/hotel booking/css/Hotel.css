@@ -1,5 +1,9 @@
 .card {
   padding: 20px;
+  width: 1160px;
+  position: relative;
+  left: 320px;
+  bottom: 1000px;
 }
 
 .photo {

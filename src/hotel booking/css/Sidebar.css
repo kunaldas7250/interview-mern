@@ -1,0 +1,76 @@
+/* Sidebar.css */
+.sidebarparent {
+  width: 280px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.serachcommponet {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.serachcommponet p {
+  font-weight: 600;
+  margin: 5px 0;
+  color: #333;
+}
+
+.serachcommponet input[type="text"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.serachcommponet input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+.serachcommponet svg {
+  font-size: 20px;
+  color: #007bff;
+  margin-left: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.hotelname, 
+.serachcommponet div {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.hotelname p,
+.serachcommponet div p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+}
+
+.hotelname p:hover {
+  background: #f1f1f1;
+  border-radius: 3px;
+  padding-left: 5px;
+}
+
+.serachcommponet label {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.serachcommponet input[type="checkbox"] {
+  margin-right: 6px;
+}

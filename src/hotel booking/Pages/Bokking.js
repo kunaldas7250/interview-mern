@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import hotels from "./hotels.json";
 import { CiCircleChevDown, CiLocationOn } from "react-icons/ci";
-import "./Booking.css";
+import "../css/Booking.css";
 import Calendar from "./Calender"
 const Bokking = () => {
      const [data, setData] = useState(hotels);

@@ -1,4 +1,4 @@
-.parent {
+.search_parent {
   width: 100%;
   display: flex;
   justify-content: center; /* centers navbar horizontally */
@@ -8,10 +8,11 @@
 }
 
 .navbar {
-  width: 100%;
-  max-width: 1200px; /* keeps content centered and not too wide */
+  width: 1450px;
+  /* max-width: 1200px;  */
   display: flex;
-  justify-content: space-between; /* space between icon & booking */
+  justify-content: space-between; 
+  gap: 50px;
   align-items: center;
   padding: 10px 20px;
   background-color: white;
@@ -32,7 +33,7 @@
 .booking {
   display: flex;
   align-items: center;
-  gap: 15px; /* spacing if Bokking has multiple inputs */
+  gap: 50px; 
 }
 
 

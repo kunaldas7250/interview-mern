@@ -2,8 +2,9 @@ import React from 'react'
 import { FaBed } from "react-icons/fa";
 import Bokking from './Bokking';
 import { motion } from "framer-motion";
-import "./Search.css"
+import "../css/Search.css"
 import Hotels from './hote';
+import Sidebar from './Sidebar';
 
 const Search = () => {
   
@@ -13,7 +14,7 @@ const Search = () => {
  
 
   return (
-    <motion.div className='parent'>
+    <motion.div className='.search_parent'>
       {/* 🔝 Navbar */}
       <motion.div className='navbar'>
         <div className='icon'>
@@ -23,7 +24,8 @@ const Search = () => {
           <Bokking />
         </div>
       </motion.div>
-
+      {/* sidebar */}
+      <Sidebar/>
       {/* 🏨 Cards */}
      <Hotels/>
     </motion.div>

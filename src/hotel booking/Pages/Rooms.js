@@ -82,7 +82,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./Rooms.css";
+import "../css/Rooms.css";
 
 const dropdownVariants = {
   hidden: { opacity: 0, y: -10, scale: 0.95 },

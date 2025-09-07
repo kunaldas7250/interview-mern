@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Hotel.css"
+import "../css/Hotel.css"
 
 
 const key = `q46kWjyGVGBb1O-ttu8bQYQe4G54eMAHIrbo6WxW4Wg`;
