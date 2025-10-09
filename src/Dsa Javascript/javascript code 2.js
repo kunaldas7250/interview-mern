@@ -43,3 +43,19 @@ function factorial(a){
 console.log(factorial(5))
 console.log(factorial(2))
 console.log(factorial(3))
+
+
+
+const reverse_a_word = (str) => {
+  let res = str.split(""); // convert string to array
+
+  for (let i = 0; i < Math.floor(res.length / 2); i++) {
+    let temp = res[i];
+    res[i] = res[res.length - 1 - i];
+    res[res.length - 1 - i] = temp;
+  }
+
+  return res.join(""); // convert back to string
+};
+
+console.log(reverse_a_word("my name is kunal das"));
