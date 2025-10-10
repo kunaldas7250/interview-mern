@@ -73,3 +73,18 @@ const Mergesort=(a,b)=>{
 const data1=[10,20,30]
 const data2=[40,50,60]
 console.log(Mergesort(data1,data2))
+
+
+const fibnonic_seq=(n)=>{
+    let a=0
+    let b=1
+    let result=[a,b]
+    for(let i=2;i<n;i++){
+       let next=a+b
+       result.push(next)
+       a=b
+       b=next
+    }
+    return result
+}
+console.log(fibnonic_seq(5))
