@@ -88,3 +88,19 @@ const fibnonic_seq=(n)=>{
     return result
 }
 console.log(fibnonic_seq(5))
+
+
+const compress_string=(n)=>{
+    let count=1
+    let store=""
+    for (let i=0;i<n.length;i++){
+            if(n[i]===n[i+1]){
+                count++
+        }else{
+            store+=n[i]+(count>1?count:"")
+            count=1
+        }
+    }
+    return store
+}
+console.log(compress_string("aaaabbcfff"))// output a4b2cf3
