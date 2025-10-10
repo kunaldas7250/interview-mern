@@ -59,3 +59,17 @@ const reverse_a_word = (str) => {
 };
 
 console.log(reverse_a_word("my name is kunal das"));
+
+const Mergesort=(a,b)=>{
+    let store=[]
+    for(let i=0;i<a.length;i++){
+        store.push(a[i])
+    }
+    for (let j=0;j<b.length;j++){
+        store.push(b[j])
+    }
+    return store
+}
+const data1=[10,20,30]
+const data2=[40,50,60]
+console.log(Mergesort(data1,data2))
