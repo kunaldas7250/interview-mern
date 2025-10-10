@@ -104,3 +104,30 @@ const compress_string=(n)=>{
     return store
 }
 console.log(compress_string("aaaabbcfff"))// output a4b2cf3
+
+
+const BinarySearch=(a,b)=>{
+    let low=0
+    let last=a.length-1
+    for(let i=0;i<a.length;i++){
+         let middle = Math.floor((low + last) / 2)
+        if(b>a[middle]){
+           for(let i=middle;i<last;i++){
+               if(a[i]===b){
+                    console.log(`Element ${b} found at index ${i}`);
+                   return a[i]
+               }
+           } 
+        }else{
+            for(let i=low;i<middle;i++){
+                if(a[i]===b){
+                     console.log(`Element ${b} found at index ${i}`);
+                    return a[i]
+                }
+            }
+        }
+    }
+    console.log("Element not found");
+}
+const input=parseInt(prompt("enter you number:"))
+console.log(BinarySearch([10,20,30,40,50,60],input))
