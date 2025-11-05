@@ -1,6 +1,14 @@
 // Array Basic
 // 🟢 Basic
-
+function power(a,b){
+  if(b===0){
+    return 1
+  }
+  return  a * power(a,b-1)
+}
+let a=6 
+let b=3 
+console.log(power(a,b))
 
 
 function Lcm(num1, num2) {
@@ -23,7 +31,7 @@ console.log(Lcm(num1, num2));
 
 
 
-// Rotate an array by k positions (cyclic rotation)
+
 
 
 
