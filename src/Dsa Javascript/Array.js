@@ -244,3 +244,20 @@ function sortarray(arr){
 }
 const arr=[1, 2, 0, 2, 1, 0, 2, 1, 0, 2, 0, 1]
 console.log(sortarray(arr))
+
+
+//Move all the negative elements to one side of the array
+function movearray(arr){
+  let j = 0;
+ for(let i=0;i<arr.length;i++){
+   if(arr[i]<0){
+     let temp=arr[i]
+     arr[i]=arr[j]
+     arr[j]=temp
+     j++
+   }
+   }
+   return arr
+}
+const arr=[1, 3, -1, 4, -3, -5, -6, 3, 7]
+console.log(movearray(arr)) // output [-6, -5, -3, -1, 1, 3, 3, 4, 7]
