@@ -203,3 +203,44 @@ for (let num of arr11) {
 // Missing number
 const missing = xorAll ^ xorArr;
 console.log("Missing number:", missing); // 3
+
+
+//Sort array which consists of 
+//0,1 and 2 without using any sorting algo
+
+
+function sortarray(arr){
+  let count0=0
+  let count1=0
+  let count2=0
+  
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]===0){
+      count0++
+     
+    }else if(arr[i]===1){
+      count1++
+      
+    }
+    else{
+      count2++
+      
+    }
+  }
+
+  for(let i=0;i<arr.length;i++){
+    if(count0>0){
+      arr[i]=0 
+      count0--
+    }else if(count1>0){
+      arr[i]=1 
+      count1--
+    }else{
+      arr[i]=2 
+      count2--
+    }
+  }
+  return arr
+}
+const arr=[1, 2, 0, 2, 1, 0, 2, 1, 0, 2, 0, 1]
+console.log(sortarray(arr))
