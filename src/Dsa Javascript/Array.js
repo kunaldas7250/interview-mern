@@ -3,7 +3,23 @@
 
 
 
+function Lcm(num1, num2) {
+  // Step 1: Find HCF
+  let hcfValue;
+  for (let i = 1; i <= num1 && i <= num2; i++) {
+    if (num1 % i === 0 && num2 % i === 0) {
+      hcfValue = i;
+    }
+  }
 
+  // Step 2: Use formula to find LCM
+  let lcmValue = (num1 * num2) / hcfValue;
+  return lcmValue;
+}
+
+const num1 = 36;
+const num2 = 60;
+console.log(Lcm(num1, num2));
 
 
 
