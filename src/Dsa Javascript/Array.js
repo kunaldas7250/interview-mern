@@ -11,7 +11,18 @@
 
 
 
-
+function hcf(arr,arr2){
+  let hcfvalue
+  for(let i=0;i<=arr && i<=arr2;i++){
+    if(arr%i==0 && arr2%i==0){
+      hcfvalue=i
+    }
+  }
+  return hcfvalue
+}
+const num1=36
+const num2=60
+console.log(hcf(num1,num2))
 
 
 
