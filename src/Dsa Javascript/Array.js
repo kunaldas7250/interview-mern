@@ -13,7 +13,7 @@
 
 function hcf(arr,arr2){
   let hcfvalue
-  for(let i=0;i<=arr && i<=arr2;i++){
+  for(let i=1;i<=arr && i<=arr2;i++){
     if(arr%i==0 && arr2%i==0){
       hcfvalue=i
     }
