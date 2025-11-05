@@ -18,7 +18,15 @@
 
 
 
-
+function odd(){
+  const number=50
+  for(let i=0;i<=number;i++){
+    if(i%2!==0){
+      console.log(i)
+    }
+  }
+}
+console.log(odd())
 
 
 
