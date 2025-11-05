@@ -141,3 +141,24 @@ for (let char of str8){
   count2++
 console.log(` len:${char} count:${count2}`)
 }
+
+
+
+function textbox(str) {
+  // Split the string into words
+  const words = str.split(" ");
+  
+  // Map through each word
+  const result = words.map(word => {
+    // If word length > 0, uppercase its last letter
+    const lastCharUpper = word[word.length - 1].toUpperCase();
+    // Combine the rest of the word + last uppercase letter
+    return word.slice(0, -1) + lastCharUpper;
+  });
+
+  // Join words back with spaces
+  return result.join(" ");
+}
+
+const input = "netaxis it solutions";
+console.log(textbox(input)); // ✅ Output: "kunaL daS"
