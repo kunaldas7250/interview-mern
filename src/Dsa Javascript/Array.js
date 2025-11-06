@@ -283,3 +283,29 @@ function prime(){
   return prime
 }
 console.log(prime())
+
+
+//check prime number or not 
+function prime(){
+  let n=10
+  let number=5
+  let isprime=true
+  if(number<2){
+    return isprime =false
+  }else{
+    for(let i=2;i<=Math.sqrt(number);i++){
+      if(number%i==0){
+        return isprime=false 
+        break
+      }
+    }
+  }
+  if(isprime){
+    console.log(`${number} is prime`)
+  }
+  else{
+    console.log(`${number} is not prime `)
+  }
+}
+
+prime()
