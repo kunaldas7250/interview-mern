@@ -261,3 +261,25 @@ function movearray(arr){
 }
 const arr=[1, 3, -1, 4, -3, -5, -6, 3, 7]
 console.log(movearray(arr)) // output [-6, -5, -3, -1, 1, 3, 3, 4, 7]
+
+
+
+// 1 to n prime number
+function prime(){
+  const n=50
+  let prime=[]
+  for (let i=2;i<=n;i++){
+   let isprime= true
+    for(let j=2;j<=Math.sqrt(i);j++){
+      if(i%j===0){
+        isprime =false
+        break
+      }
+    }
+    if (isprime){
+      prime.push(i)
+    }
+  }
+  return prime
+}
+console.log(prime())
