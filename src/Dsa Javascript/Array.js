@@ -309,3 +309,27 @@ function prime(){
 }
 
 prime()
+
+
+
+//Remove duplicates from an array.
+function Removeduplicate(arr){
+  const copy=[...arr]
+  const fresharr=[]
+  
+  for(let i=0;i<copy.length;i++){
+    let isduplicates=false
+    for(let j=0;j<fresharr.length;j++){
+      if(copy[i]===fresharr[j]){
+        isduplicates=true
+        break
+      }
+    }
+    if(!isduplicates){
+      fresharr.push(copy[i])
+    }
+  }
+  return fresharr
+}
+const arr=[10,10,50,30,70,60,30,40,50]
+console.log(Removeduplicate(arr))
