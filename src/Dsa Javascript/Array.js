@@ -338,7 +338,7 @@ console.log(Removeduplicate(arr))
 
 
 function frequency(str) {
-  const slt = str.split("");
+  const slt = str.trim().split("");
   let countH = 0,
       countE = 0,
       countL = 0,
