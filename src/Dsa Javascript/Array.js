@@ -333,3 +333,45 @@ function Removeduplicate(arr){
 }
 const arr=[10,10,50,30,70,60,30,40,50]
 console.log(Removeduplicate(arr))
+
+
+
+
+function frequency(str) {
+  const slt = str.split("");
+  let countH = 0,
+      countE = 0,
+      countL = 0,
+      countO = 0,
+      countW = 0,
+      countR = 0,
+      countD = 0;
+
+  for (let i = 0; i < slt.length; i++) {
+    if (slt[i] === "h") countH++;
+    else if (slt[i] === "e") countE++;
+    else if (slt[i] === "l") countL++;
+    else if (slt[i] === "o") countO++;
+    else if (slt[i] === "w") countW++;
+    else if (slt[i] === "r") countR++;
+    else if (slt[i] === "d") countD++;
+  }
+
+const result={
+  h:countH,
+  e:countE,
+  l:countL,
+  o:countO,
+  w:countW,
+  r:countR,
+  d:countD
+}
+const sorted_keys=Object.keys(result).sort()
+for(let keys of sorted_keys){
+  console.log(`${keys}: ${result[keys]}`);
+
+}
+}
+
+const str = "hello world";
+frequency(str);
