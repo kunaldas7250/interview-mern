@@ -450,3 +450,45 @@ function sliding_window_problem(arr,k){
 const arr=[5, 2, -1, 0, 3];
 const k=3 
 console.log(sliding_window_problem(arr,k))
+
+
+function heap_sort(arr, n) {
+  // Step 1: Build max heap
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapify(arr, n, i);
+  }
+
+  // Step 2: Extract elements one by one
+  for (let i = n - 1; i > 0; i--) {
+    [arr[0], arr[i]] = [arr[i], arr[0]]; // swap
+    heapify(arr, i, 0); // heapify root with reduced heap size
+  }
+
+  return arr;
+}
+
+function heapify(arr, n, i) {
+  let largest = i;
+  let left = 2 * i + 1;
+  let right = 2 * i + 2;
+
+  // If left child is larger
+  if (left < n && arr[left] > arr[largest]) {
+    largest = left;
+  }
+
+  // If right child is larger
+  if (right < n && arr[right] > arr[largest]) {
+    largest = right;
+  }
+
+  // If largest is not root
+  if (largest !== i) {
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapify(arr, n, largest); // recursively heapify affected subtree
+  }
+}
+
+const arr = [10, 20, 50, 80, 40, 90];
+let n = arr.length;
+console.log(heap_sort(arr, n));
