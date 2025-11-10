@@ -414,3 +414,39 @@ if(two_sum(arr,target_value)){
 else{
   console.log("not success")
 }
+//sliding window problem
+function sliding_window_problem_max_elemnt(arr,k){
+  let n=arr.length
+  let resu=[]
+  for(let i=0;i<=n-k;i++){
+    let max=arr[i]
+    for(let j=1;j<k;j++){
+      if(arr[i+j]>max){
+        max=arr[j+i]
+      }
+    }
+    resu.push(max)
+  }
+  return resu
+}
+const arr=[5, 2, -1, 0, 3];
+const k=3 
+console.log(sliding_window_problem_max_elemnt(arr,k))
+
+
+function sliding_window_problem(arr,k){
+  let n=arr.length
+  let max=0
+  for(let i=0;i<=n-k;i++){
+     max+=arr[i]
+  }
+  let window_sum=max
+  for(let i=k;i<n;i++){
+    window_sum+=arr[i]-arr[i-k]
+    max=Math.max(window_sum,max)
+  }
+  return max
+}
+const arr=[5, 2, -1, 0, 3];
+const k=3 
+console.log(sliding_window_problem(arr,k))
