@@ -392,3 +392,25 @@ function bubble_sort(arr){
 }
 var arr = [ 64, 34, 25, 12, 22, 11, 90 ];
 console.log(bubble_sort(arr))
+
+
+//2 sum problem 
+function two_sum(arr,value){
+  let n=arr.length;
+  for(let i=0;i<n;i++){
+    for(let j=i+1;j<n;j++){
+      if(arr[i]+arr[j]==value){
+        return true
+      }
+    }
+  }
+  return false
+}
+const arr=[0, -1, 2, -3, 1]
+const target_value=-2
+if(two_sum(arr,target_value)){
+  console.log("success")
+}
+else{
+  console.log("not success")
+}
