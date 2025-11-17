@@ -67,3 +67,43 @@ function vowels(str){
 
 const name = "kunal";
 console.log(vowels(name));
+
+
+//Remove all vowels from a string
+function remove_vowels(str){
+  let result = str.split("");
+  let n = result.length;
+  let remove_vowels_container = [];
+
+  let counte = 0;
+  let counta = 0;
+  let counti = 0;
+  let counto = 0;
+  let countu = 0;
+
+  for(let i = 0; i < n; i++){
+    if(result[i] === "a"){
+      counta++;
+    }
+    else if(result[i] === "e"){
+      counte++;
+    }
+    else if(result[i] === "i"){
+      counti++;
+    }
+    else if(result[i] === "o"){
+      counto++;
+    }
+    else if(result[i] === "u"){
+      countu++;
+    }
+    else{
+      remove_vowels_container.push(result[i]);  // push consonant
+    }
+  }
+
+  return remove_vowels_container.join("");  // return string instead of array
+}
+
+const name = "kunal";
+console.log(remove_vowels(name));
