@@ -31,3 +31,39 @@ function palindrome(str){
 }
 const name="abc"
 console.log(palindrome(name))
+
+
+//Count vowels in a string
+function vowels(str){
+  const result = str.split("");  // split characters
+  let n = result.length;
+
+  let counte = 0;
+  let counta = 0;
+  let counti = 0;
+  let counto = 0;
+  let countu = 0;
+
+  for(let i = 0; i < n; i++){
+    if(result[i] === "a"){
+      counta++;
+    }
+    else if(result[i] === "e"){
+      counte++;
+    }
+    else if(result[i] === "i"){
+      counti++;
+    }
+    else if(result[i] === "o"){
+      counto++;
+    }
+    else if(result[i] === "u"){
+      countu++;
+    }
+  }
+
+  return { a: counta, e: counte, i: counti, o: counto, u: countu };  
+}
+
+const name = "kunal";
+console.log(vowels(name));
