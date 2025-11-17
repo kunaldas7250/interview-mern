@@ -107,3 +107,25 @@ function remove_vowels(str){
 
 const name = "kunal";
 console.log(remove_vowels(name));
+
+
+//Find the first non-repeating character
+function reapting_charater(str){
+  let result=str.split("")
+  let n=result.length
+  for(let i=0;i<n;i++){
+    let reapting=false
+    for(let j=0;j<n;j++){
+      if(i!==j &&result[i]===result[j]){
+        reapting=true
+        break
+      }
+    }
+    if(!reapting){
+      return result[i]
+    }
+  }
+  return null
+}
+const name="boobsk"
+console.log(reapting_charater(name))
