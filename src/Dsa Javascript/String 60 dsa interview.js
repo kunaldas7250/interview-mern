@@ -204,3 +204,24 @@ function special(str){
 
 const name = "dashingkuna#%&*&l@143gmaol.com";
 console.log(special(name));
+
+
+//Convert Roman numeral to integer
+function RomanToInteger(s){
+  let romanMap = {
+        'I': 1, 'V': 5, 'X': 10, 'L': 50,
+        'C': 100, 'D': 500, 'M': 1000
+    }
+    let res=0
+    for(let i=0;i<s.length;i++){
+      if(i+1 && romanMap[s[i]]<romanMap[s[i+1]]){
+        res+=romanMap[s[i+1]]-romanMap[s[i]]
+        i++
+      }else{
+       res+= romanMap[s[i]]
+      }
+    }
+    return res
+}
+let s = "MCMXCIV"; 
+console.log(RomanToInteger(s))
