@@ -153,3 +153,29 @@ function anagrams(str,str2){
 const name1="listen"
 const name2="silentk"
 console.log(anagrams(name1,name2))
+
+
+function last_charhater_uppercase(str){
+  let result=str.split(" ")
+  
+  let final_res=result.map((word)=>{
+    let last=word[word.length-1].toUpperCase()
+    return word.slice(0,-1)+last
+  })
+  return final_res.join(" ")
+}
+let name="my name is kunal das"
+console.log(last_charhater_uppercase(name))
+
+
+
+function first(name){
+  let result=name.split(" ")
+  let reult=result.map((word)=>{
+    let first=word[0].toUpperCase()
+    return first + word.slice(1);  
+  })
+  return reult.join(" ")
+}
+ let name="my name is kunal das"
+ console.log(first(name))
