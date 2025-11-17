@@ -179,3 +179,28 @@ function first(name){
 }
  let name="my name is kunal das"
  console.log(first(name))
+
+
+//Remove all special characters
+function special(str){
+  let result = str.split("");   // split into characters
+  let len = result.length;
+  let store = [];               // use array so push works
+
+  for(let i = 0; i < len; i++){
+    let ch = result[i];
+
+    // check if it's NOT a special character
+    if(
+      ch !== "!" && ch !== "@" && ch !== "#" && ch !== "$" &&
+      ch !== "%" && ch !== "^" && ch !== "&" && ch !== "*"
+    ){
+      store.push(ch);
+    }
+  }
+
+  return store.join("");
+}
+
+const name = "dashingkuna#%&*&l@143gmaol.com";
+console.log(special(name));
