@@ -129,3 +129,27 @@ function reapting_charater(str){
 }
 const name="boobsk"
 console.log(reapting_charater(name))
+
+
+//Check if two strings are anagrams
+function anagrams(str,str2){
+  let split_str1=str.split("").sort()
+   let split_str2=str2.split("").sort()
+   
+   let str1len=split_str1.length
+   let str2len=split_str2.length
+   
+   if(str1len!==str2len){
+     return false
+   }
+   
+   for(let i=0;i<str1len;i++){
+     if(split_str1[i]!==split_str2[i]){
+       return false
+     }
+   }
+   return true
+}
+const name1="listen"
+const name2="silentk"
+console.log(anagrams(name1,name2))
